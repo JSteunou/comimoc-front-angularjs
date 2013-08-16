@@ -10,7 +10,14 @@
 
     <script>
         angular.module('comimoc', ['ngResource'])
-            .constant('COMIMOC_RESOURCES', 'http://comimoc.dev/gae/comments');
+            .constant('COMIMOC_CONFIG',
+                {
+                'RESOURCES_LOCATION':   'http://comimoc.dev/gae/comments',
+                'WEBSITE':              'www.comimoc.dev',
+                'HASH':                 true,
+                'ARGS':                 true
+                }
+            );
     </script>
     <script src="scripts/app.js"></script>
 </body>

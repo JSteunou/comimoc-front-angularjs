@@ -14,12 +14,12 @@
     <div class="content">{{ comment.content }}</div>
 </div>
 
-<form ng-submit="submit()">
+<form name="commentForm" ng-submit="submit(commentForm.$valid)">
     <fieldset>
         <legend>Post your comment:</legend>
-        <div><input ng-model="comment.author_name" type="text" required="true" placeholder="Name"></div>
-        <div><input ng-model="comment.author_email" type="email" placeholder="Email (never public)"></div>
-        <textarea ng-model="comment.content" rows="6" placeholder="Comment..."></textarea>
+        <div><input name="authorName"  ng-model="comment.author_name"   type="text" required="true" placeholder="Name"></div>
+        <div><input name="authorEmail" ng-model="comment.author_email" type="email" required="true" placeholder="Email (never public)"></div>
+        <textarea rows="6" name="content" ng-model="comment.content" required="true" placeholder="Comment..."></textarea>
         <div><button type="submit" class="btn">Submit</button></div>
     </fieldset>
 </form>
