@@ -1,8 +1,6 @@
 
 (function(comimoc, angular) {
     
-    console.log(comimoc.ARGS);
-
     comimoc.factory('Comments', ['$resource', 'COMIMOC_CONFIG', function($resource, COMIMOC_CONFIG) {
         // expose `Comments` resource service
         
