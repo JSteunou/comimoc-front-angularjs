@@ -1,0 +1,25 @@
+<h1><ng-pluralize count="comments.length"
+                  when="{'0': 'No comments yet.',
+                         'one': '1 comment so far.',
+                         'other': '{} comments.'}">
+    </ng-pluralize>
+</h1>
+<hr />
+
+<div class="comment" ng-repeat="comment in comments">
+    <div class="meta">
+        <img src="http://www.gravatar.com/avatar/{{ comment.author_email}}?d=retro" />
+        <span class="author">by {{ comment.author_name}} at {{ comment.when }}</span>
+    </div>
+    <div class="content">{{ comment.content }}</div>
+</div>
+
+<form ng-submit="submit()">
+    <fieldset>
+        <legend>Post your comment:</legend>
+        <div><input ng-model="comment.author_name" type="text" required="true" placeholder="Name"></div>
+        <div><input ng-model="comment.author_email" type="email" placeholder="Email (never public)"></div>
+        <textarea ng-model="comment.content" rows="6" placeholder="Comment..."></textarea>
+        <div><button type="submit" class="btn">Submit</button></div>
+    </fieldset>
+</form>
