@@ -1,35 +1,38 @@
-'use strict';
 
-(function(angular, config) {
+(function(comimoc, angular) {
 
-    angular.module('comimoc', ['ngResource'])
-        .factory('Comments', function($resource) {
-            // transform on query or get
-            var transformResponse = function(data) {
-                var jsonData = angular.fromJson(data);
-                return jsonData.comments || jsonData.comment;
-            };
-            return $resource('http://pelicoms.dev/gae/comments',
-                             {},
-                             {'query':  {method:'GET', isArray: true, transformResponse: transformResponse}});
+    comimoc.factory('Comments', ['$resource', 'COMIMOC_RESOURCES', function($resource, COMIMOC_RESOURCES) {
+        // expose `Comments` resource service
         
-        })
-        .controller('CommentCtrl', ['$scope', 'Comments', function ($scope, Comments) {
+        // transform on query or get
+        var transformResponse = function(data) {
+            var jsonData = angular.fromJson(data);
+            return jsonData.comments || jsonData.comment;
+        };
+        return $resource(COMIMOC_RESOURCES,
+                         {},
+                         {'query':  {method:'GET', isArray: true, transformResponse: transformResponse}});
         
-            $scope.comments = Comments.query({website: "pelicoms.dev", page: "dtc"});
-            $scope.comment = new Comments();
-            
-            $scope.submit = function() {
-                $scope.comment.website = "pelicoms.dev";
-                $scope.comment.page = "dtc";
-                
-                $scope.comment.$save().then(function(comment) {
-                    $scope.comment = new Comments();
-                    $scope.comments.push(comment);
-                });
-            };
-            
-        }]);
+    }]);
     
-})(angular, {});
+    comimoc.controller('CommentCtrl', ['$scope', 'Comments', function ($scope, Comments) {
+        // handle getting and posting new comments
+        
+        $scope.comments = Comments.query({website: "pelicoms.dev", page: "dtc"});
+        $scope.comment = new Comments();
+        
+        $scope.submit = function() {
+            $scope.comment.website = "pelicoms.dev";
+            $scope.comment.page = "dtc";
+            
+            $scope.comment.$save().then(function(comment) {
+                $scope.comment = new Comments();
+                $scope.comments.push(comment);
+            });
+        };
+            
+    }]);
+
+
+})(angular.module('comimoc'), angular);
 

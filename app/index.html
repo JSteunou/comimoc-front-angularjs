@@ -8,6 +8,10 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
 
+    <script>
+        angular.module('comimoc', ['ngResource'])
+            .constant('COMIMOC_RESOURCES', 'http://comimoc.dev/gae/comments');
+    </script>
     <script src="scripts/app.js"></script>
 </body>
 </html>
