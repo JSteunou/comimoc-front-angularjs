@@ -1,14 +1,21 @@
 
+
 (function(comimoc, angular) {
+    
+    // comimoc.config(['$httpProvider', function ($httpProvider) {
+    //     $httpProvider.defaults.headers.common.withCredentials = true;
+    // }]);
+    
     
     comimoc.factory('Comments', ['$resource', 'COMIMOC_CONFIG', function($resource, COMIMOC_CONFIG) {
         // expose `Comments` resource service
         
-        // transform on query or get
+        // transform on query GET
         var transformResponse = function(data) {
             var jsonData = angular.fromJson(data);
             return jsonData.comments;
         };
+        
         return $resource(COMIMOC_CONFIG.RESOURCES_LOCATION,
                          {},
                          {'query':  {method:'GET',  isArray: true, transformResponse: transformResponse}});
