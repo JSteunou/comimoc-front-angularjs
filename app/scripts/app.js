@@ -11,7 +11,7 @@
             return jsonData.comments;
         };
         
-        return $resource(COMIMOC_CONFIG.RESOURCES_LOCATION,
+        return $resource(COMIMOC_CONFIG.RESOURCES_LOCATION + "/comments",
                          {},
                          {'query':  {method:'GET',  isArray: true, transformResponse: transformResponse}});
         
