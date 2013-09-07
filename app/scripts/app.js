@@ -2,11 +2,6 @@
 
 (function(comimoc, angular) {
     
-    // comimoc.config(['$httpProvider', function ($httpProvider) {
-    //     $httpProvider.defaults.headers.common.withCredentials = true;
-    // }]);
-    
-    
     comimoc.factory('Comments', ['$resource', 'COMIMOC_CONFIG', function($resource, COMIMOC_CONFIG) {
         // expose `Comments` resource service
         
@@ -55,10 +50,14 @@
                 $scope.comment.website = getWebsite();
                 $scope.comment.page = getPage();
                 
-                $scope.comment.$save().then(function(comment) {
-                    $scope.comment = new Comments();
-                    $scope.comments.push(comment);
-                });
+                $scope.comment.$save().then(
+                    function(comment) {
+                        $scope.comment = new Comments();
+                        $scope.comments.push(comment);
+                    },
+                    function(resp) {
+                        $scope.error = resp;
+                    });
             }
         };
             
