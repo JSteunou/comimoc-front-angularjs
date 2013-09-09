@@ -1,0 +1,16 @@
+{
+  "name": "comimoc-front-angularjs",
+  "shortname": "comimoc",
+  "version": "1.0.0",
+  "description": "Comimoc front-end with AngularJS",
+  "author": "Jérôme Steunou",
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JSteunou/comimoc-front-angularjs"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.4"
+  }
+}
