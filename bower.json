@@ -1,11 +1,8 @@
 {
-  "name": "comimoc",
+  "name": "comimoc-front-angularjs",
   "version": "1.0.0",
   "dependencies": {
     "angular": "1.2.0-rc.2",
     "angular-resource": "1.2.0-rc.2"
-  },
-  "resolutions": {
-    "angular": "1.2.0-rc.2"
   }
 }
