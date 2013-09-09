@@ -4,23 +4,20 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <div ng-app="comimoc" ng-controller="CommentCtrl" ng-include="'./views/comment.html'"></div>
+    <div ng-app="comimoc" ng-controller="CommentCtrl" ng-include="'./views/comimoc.html'"></div>
     
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
 
     <script>
         angular.module('comimoc', ['ngResource'])
-            .constant('COMIMOC_CONFIG',
-                {
-                // 'RESOURCES_LOCATION':   'http://comimoc-jsteunou.rhcloud.com/',
-                'RESOURCES_LOCATION':   'http://comimoc.dev/flask/',
+            .constant('COMIMOC_CONFIG', {
+                'RESOURCES_LOCATION':   'http://comimoc.herokuapp.com',
                 'WEBSITE':              'www.comimoc.dev',
                 'HASH':                 true,
                 'ARGS':                 false
-                }
-            );
+                });
     </script>
-    <script src="scripts/app.js"></script>
+    <script src="scripts/comimoc.js"></script>
 </body>
 </html>

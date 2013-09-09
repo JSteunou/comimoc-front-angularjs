@@ -1,4 +1,8 @@
-
+/*
+ Comimoc front v1.0
+ (c) 2013 Jérôme Steunou https://github.com/JSteunou/comimoc-front
+ License: BSD
+*/
 
 (function(comimoc, angular) {
     
@@ -6,6 +10,8 @@
         // expose `Comments` resource service
         
         // transform on query GET
+        // because the API never return array
+        // but object containing array (security reason)
         var transformResponse = function(data) {
             var jsonData = angular.fromJson(data);
             return jsonData.comments;
@@ -39,10 +45,20 @@
             return COMIMOC_CONFIG.WEBSITE || '';
         };
         
+        var normalize = function(comment) {
+            comment.when = new Date(comment.when);
+            return comment;
+        };
+        
         
         // -- public --
         
         $scope.comments = Comments.query({website: getWebsite(), page: getPage()});
+        $scope.comments.$promise.then(function(comments) {
+            comments.forEach(function(comment) {
+               comment = normalize(comment);
+            });
+        });
         $scope.comment = new Comments();
         
         $scope.submit = function(valid) {
@@ -52,8 +68,9 @@
                 
                 $scope.comment.$save().then(
                     function(comment) {
+                        delete $scope.error;
                         $scope.comment = new Comments();
-                        $scope.comments.push(comment);
+                        $scope.comments.push(normalize(comment));
                     },
                     function(resp) {
                         $scope.error = resp;
