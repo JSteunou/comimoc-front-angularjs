@@ -1,9 +1,7 @@
-/*
- Comimoc front v1.0
- (c) 2013 Jérôme Steunou https://github.com/JSteunou/comimoc-front
- License: BSD
-*/
 
+/* Comimoc front-end with AngularJS  v1.0.0
+(c) 2013 Jérôme Steunou https://github.com/JSteunou/comimoc-front-angularjs
+License: BSD */
 (function(comimoc, angular) {
     
     comimoc.constant('SimpleI18n', {
