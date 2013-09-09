@@ -55,7 +55,7 @@ You can see it uses a template named `views/comimoc.html`, use it, hack it, writ
 
 ## see it in action?
 
-You can go to my blog http://wwW.jeromesteunou.net where I am using it like so with just some CSS, nothing more.
+You can go to my blog http://www.jeromesteunou.net where I am using it like so with just some CSS, nothing more.
 
 ## set it?
 
