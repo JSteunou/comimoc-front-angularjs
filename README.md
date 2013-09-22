@@ -1,6 +1,6 @@
 # Comimoc Front AngularJS
 
-Comimoc Front AngularJS is a front-end in angularjs part of the Comimoc project.
+Comimoc Front AngularJS is a front-end in angularjs part of the [Comimoc project](http://www.jeromesteunou.net/pages/comimoc.html).
 
 It is a simple AngularJS app that provide a front-end to [Comimoc Back](https://github.com/JSteunou/comimoc-back), easy to add and customise for any website.
 
